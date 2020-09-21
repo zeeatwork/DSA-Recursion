@@ -10,13 +10,13 @@ Output:
 2: Another sheep jumps over the fence
 1: Another sheep jumps over the fence
 All sheep jumped over the fence*/
-function countSheep(herd) {
+let countSheep = (herd) => {
   if (herd === 0) {
     return console.log("All sheep jumped over the fence");
   }
   console.log(herd, "Another sheep jumps over the fence");
   countSheep(herd - 1);
-}
+};
 
 countSheep(12);
 
@@ -28,15 +28,53 @@ Use only exponents greater than or equal to 0 (positive numbers)
 powerCalculator(10,2) should return 100
 powerCalculator(10,-2) should return exponent should be >= 0 */
 
-function powerCalculator(baseInt, expInt) {
-  raisedNumber = 1;
-  if (expInt <= 0) {
+let powerCalculator = (baseInt, expInt) => {
+  if (expInt < 0) {
     return console.log("exponent should be >= 0");
   }
+  if (expInt == 0) {
+    return 1;
+  }
 
-  raisedNumber = raisedNumber * baseInt;
-  powerCalculator(baseInt, expInt - 1);
-  return raisedNumber;
+  return baseInt * powerCalculator(baseInt, expInt - 1);
+
   console.log(raisedNumber);
-}
+};
 powerCalculator(7, 4);
+console.log(powerCalculator(7, 4));
+
+/* Write a function that reverses a string. Take a string as input, 
+reverse the string, and return the new string.*/
+
+let stringReverse = (str) => {
+  if (str.length == 0) {
+    return str;
+  }
+  return stringReverse(str.slice(1)) + str[0];
+};
+
+console.log(stringReverse("carol"));
+/*4. nth Triangular Number
+Calculate the nth triangular number. 
+A triangular number counts the objects that can form an equilateral triangle. 
+The nth triangular number is the number of dots composing a triangle with n dots on a side,
+ and is equal to the sum of the n natural numbers from 1 to n. 
+This is the Triangular Number Sequence: 1, 3, 6, 10, 15, 21, 28, 36, 45.*/
+
+/*String Splitter
+Write a recursive function that splits a string based on a separator 
+(similar to String.prototype.split). Don't use JS array's split function to solve this problem.
+
+Input: 02/20/2020
+Output: ["02", "20", "2020"]*/
+
+let stringSplitter = (str1, separator = "/") => {
+  let index = str1.indexOf(separator);
+  if (index == -1) {
+    return [str1];
+  }
+  let front = str1.slice(0, index);
+  let rest = str1.slice(index + 1);
+  return [front].concat(stringSplitter(rest, separator));
+};
+console.log(stringSplitter("02 / 20 / 2020"));
