@@ -78,3 +78,26 @@ let stringSplitter = (str1, separator = "/") => {
   return [front].concat(stringSplitter(rest, separator));
 };
 console.log(stringSplitter("02 / 20 / 2020"));
+
+
+/*Write a recursive function that prints the Fibonacci sequence of a given number. 
+The Fibonacci sequence is a series of numbers in which each number is the sum of 
+the 2 preceding numbers. For example, the 7th Fibonacci number in a 
+Fibonacci sequence is 13. The sequence looks as follows: 1, 1, 2, 3, 5, 8, 13.*/
+
+let fiboFinder = (num) => {
+  let sequence = [];
+  if (sequence[-1] == num){
+    return sequence;
+  }
+  /*
+function fib(n) { console.log(n);
+
+if (n === 0) return 0; if (n === 1) return 1;
+
+return fib(n - 1) + fib(n - 2); }*/
+
+  sequence[...fiboFinder(num-1)]
+}
+
+/*find your way out of the maze*/
